@@ -1,16 +1,24 @@
 :root {
-    --primary-color: #2cb0dc;
-    --secondary-color: #005aad;
-    --text-color: #030303;
-    --background-color: #FFFFFF;
-    --accent-color: #5de0e6;
+    --color-cdffff: #cdffff;
+    --color-white: #FFFFFF;
+    --color-2cb0dc: #2cb0dc;
+    --color-030303: #030303;
+    --color-61bcdd: #61bcdd;
+    --color-46a3d0: #46a3d0;
+    --color-2586c0: #2586c0;
+    --color-5de0e6: #5de0e6;
+    --color-005aad: #005aad;
+    --color-2db0dc: #2db0dc;
+    --color-63bcdd: #63bcdd;
+    --color-46a1ce: #46a1ce;
+    --color-2588c1: #2588c1;
 }
 
 body {
     font-family: 'Roboto', 'League Spartan', 'Glacial Indifference', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
+    color: var(--color-030303);
+    background-color: var(--color-white);
     margin: 0;
     padding: 0;
 }
@@ -22,7 +30,7 @@ body {
 }
 
 header {
-    background-color: white;
+    background-color: var(--color-white);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -52,7 +60,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--primary-color);
+    color: var(--color-2cb0dc);
     text-decoration: none;
     font-weight: bold;
 }
@@ -69,7 +77,7 @@ main {
     display: flex;
     align-items: center;
     text-align: center;
-    color: white;
+    color: var(--color-white);
 }
 
 .hero h1 {
@@ -80,8 +88,8 @@ main {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--text-color);
+    background-color: var(--color-5de0e6);
+    color: var(--color-030303);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -101,7 +109,7 @@ main {
 }
 
 .service-item {
-    background-color: var(--background-color);
+    background-color: var(--color-cdffff);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -117,13 +125,13 @@ form {
 input, textarea {
     margin-bottom: 1rem;
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-61bcdd);
     border-radius: 4px;
 }
 
 button {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--color-2cb0dc);
+    color: var(--color-white);
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -131,8 +139,8 @@ button {
 }
 
 footer {
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--color-005aad);
+    color: var(--color-white);
     padding: 2rem 0;
 }
 
@@ -147,7 +155,7 @@ footer {
 }
 
 .footer-section a {
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     display: block;
     margin-bottom: 0.5rem;
