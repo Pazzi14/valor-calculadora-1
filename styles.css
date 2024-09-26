@@ -1,30 +1,40 @@
 :root {
     --primary-color: #2cb0dc;
     --secondary-color: #005aad;
-    --background-color: #cdffff;
     --text-color: #030303;
+    --background-color: #FFFFFF;
     --accent-color: #5de0e6;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'League Spartan', 'Glacial Indifference', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    background-color: var(--background-color);
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
 }
 
-h1, h2, h3 {
-    font-family: 'League Spartan', sans-serif;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
-    background-color: var(--primary-color);
-    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 0;
 }
 
 .logo {
@@ -33,54 +43,16 @@ header {
 
 nav ul {
     list-style-type: none;
+    padding: 0;
     display: flex;
 }
 
 nav ul li {
-    margin-left: 1rem;
+    margin-left: 20px;
 }
 
 nav ul li a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.hero {
-    background-image: url('https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: #FFFFFF;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 1rem;
-}
-
-.about, .services, .contact, .calculator, .faq, .testimonials {
-    padding: 4rem 2rem;
-    max-width: 1200px;/* styles.css */
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
 }
@@ -95,8 +67,6 @@ main {
     background-position: center;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
@@ -110,8 +80,8 @@ main {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--text-color);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -120,24 +90,7 @@ main {
 }
 
 .about, .services, .contact {
-    padding: 4rem 2rem;
-}
-
-.team-image {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-top: 2rem;
-}
-
-.service-grid {
-    display: grid;
-    margin: 0 auto;
-}
-
-.about-image {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-top: 2rem;
+    padding: 4rem 0;
 }
 
 .service-grid {
@@ -148,38 +101,27 @@ main {
 }
 
 .service-item {
-    background-color: #FFFFFF;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.contact-info {
-    background-color: #FFFFFF;
+    background-color: var(--background-color);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-#loan-calculator {
+form {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
 }
 
-#loan-calculator label {
-    margin: 10px 0 5px;
-}
-
-#loan-calculator input, #loan-calculator select {
-    padding: 10px;
-    margin-bottom: 20px;
+input, textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-#loan-calculator button {
+button {
     background-color: var(--primary-color);
     color: white;
     padding: 10px;
@@ -188,76 +130,44 @@ main {
     cursor: pointer;
 }
 
-#loan-calculator button:hover {
-    background-color: var(--secondary-color);
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    text-align: center;
-}
-
-.faq, .testimonials {
-    padding: 4rem 2rem;
-    background-color: var(--background-color);
-}
-
-.faq h2, .testimonials h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.faq-item, .testimonial-item {
-    background-color: white;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item h3 {
-    margin-bottom: 0.5rem;
-}
-
-.testimonial-item p {
-    font-style: italic;
-    color: var(--text-color);
-}
-
 footer {
-    background-color: var(--primary-color);
-    color: #FFFFFF;
-    text-align: center;
-    padding: 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 2rem 0;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.social-media a {
-    color: #FFFFFF;
-    margin: 0 10px;
+.footer-section {
+    margin-bottom: 1rem;
+}
+
+.footer-section a {
+    color: white;
     text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 1rem;
-    }
-
     .hero h1 {
         font-size: 2rem;
     }
 
     .service-grid {
         grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
     }
 }
