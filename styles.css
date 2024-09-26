@@ -1,9 +1,10 @@
+/* styles.css */
+
 :root {
-    --primary-color: #0B3954;
-    --secondary-color: #087E8B;
-    --accent-color: #BFD7EA;
+    --primary-color: #0077BE;
+    --secondary-color: #00A86B;
     --text-color: #333;
-    --background-color: #F0F3F5;
+    --background-color: #F5F5F5;
 }
 
 body {
@@ -19,28 +20,25 @@ header {
     background-color: var(--primary-color);
     color: white;
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-nav .logo img {
-    height: 50px;
+.logo {
+    max-width: 150px;
 }
 
 nav ul {
     list-style-type: none;
+    padding: 0;
     display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    margin-left: 1rem;
+    margin: 0 15px;
 }
 
 nav ul li a {
@@ -50,193 +48,120 @@ nav ul li a {
 }
 
 main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    padding-top: 80px;
 }
 
 .hero {
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 3rem 1rem;
+    background-image: url('https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-bottom: 2rem;
+    color: white;
 }
 
 .hero h1 {
     font-family: 'League Spartan', sans-serif;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
 }
 
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
-.cta-button:hover {
-    background-color: #9ABFD2;
+.about, .services, .contact {
+    padding: 4rem 2rem;
 }
 
-section {
-    margin-bottom: 2rem;
+.team-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 2rem;
 }
 
-h2 {
-    font-family: 'League Spartan', sans-serif;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.services {
+.service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    margin-top: 2rem;
 }
 
-.service-card {
+.service-item {
     background-color: white;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.service-card img {
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-}
-
-.timeline {
-    position: relative;
-    max-width: 1200px;
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
     margin: 0 auto;
-    padding: 2rem 0;
 }
 
-.timeline::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: var(--secondary-color);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -3px;
+input, textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-}
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: var(--background-color);
-    border: 4px solid var(--accent-color);
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.left {
-    left: 0;
-}
-
-.right {
-    left: 50%;
-}
-
-.left::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid var(--secondary-color);
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent var(--secondary-color);
-}
-
-.right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 22px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid var(--secondary-color);
-    border-width: 10px 10px 10px 0;
-    border-color: transparent var(--secondary-color) transparent transparent;
-}
-
-.right::after {
-    left: -16px;
-}
-
-.timeline-content {
-    padding: 20px 30px;
-    background-color: white;
-    position: relative;
-    border-radius: 6px;
-}
-
-.timeline-content img {
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 footer {
     background-color: var(--primary-color);
     color: white;
+    padding: 2rem 0;
     text-align: center;
-    padding: 1rem 0;
 }
 
-.contact-info {
+.footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.contact-info div {
-    flex: 1;
-    min-width: 250px;
-    margin: 1rem;
+.footer-section {
+    margin-bottom: 1rem;
 }
 
-.contact-info img {
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-}
-
-.social-media {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.social-media a {
-    margin: 0 0.5rem;
+.footer-section a {
     color: white;
     text-decoration: none;
-    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
 }
