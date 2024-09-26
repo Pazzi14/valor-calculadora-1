@@ -11,28 +11,31 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo da Valor Financiamentos" class="logo">
+        <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo da Valor Financiamentos" class="logo">
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <h1>Bem-vindo à Valor Financiamentos</h1>
-            <p>Transformando suas aspirações financeiras em realidade desde 2006</p>
+            <h1>Valor Financiamentos</h1>
+            <p>Sua parceira confiável na jornada rumo às suas conquistas financeiras.</p>
             <a href="#servicos" class="cta-button">Conheça Nossos Serviços</a>
         </section>
 
         <section id="sobre" class="about">
-            <h2>Sobre a Valor Financiamentos</h2>
-            <p>A Valor Financiamentos, regulamentada e autorizada pelo Banco Central do Brasil, é sua parceira confiável há mais de 18 anos. Oferecemos soluções de crédito personalizadas com eficiência e profissionalismo.</p>
-            <img src="https://sinlopar.com.br/wp-content/uploads/2023/12/trabalho-em-equipe-2.jpg" alt="Equipe Valor Financiamentos" class="team-image">
+            <h2>Sobre Nós</h2>
+            <p>A Valor Financiamentos, devidamente regulamentada e autorizada pelo Banco Central do Brasil, é sua parceira confiável na jornada rumo às suas conquistas financeiras. Com mais de 18 anos de excelência no mercado financeiro brasileiro, nossa missão é compreender e atender às suas necessidades de crédito com precisão e agilidade.</p>
+            <img src="https://sinlopar.com.br/wp-content/uploads/2023/12/trabalho-em-equipe-2.jpg" alt="Equipe Valor Financiamentos" class="about-image">
         </section>
 
         <section id="servicos" class="services">
@@ -59,37 +62,78 @@
 
         <section id="contato" class="contact">
             <h2>Entre em Contato</h2>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Seu Nome" required>
-                <input type="email" name="email" placeholder="Seu E-mail" required>
-                <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-                <button type="submit">Enviar</button>
+            <div class="contact-info">
+                <p>Ligação Matriz Geral: (11) 3717-6444</p>
+                <p>Contratação de Empréstimo via WhatsApp: (11) 3717-6415</p>
+                <p>SAC: (11) 4873-1304</p>
+                <p>Cobrança: (11) 3717-6422</p>
+                <p>Ouvidoria: 0800 591 3076</p>
+                <p>Endereço: Rua Augusta 101 - Consolação - São Paulo - SP - 01305-000</p>
+            </div>
+        </section>
+
+        <section id="calculadora" class="calculator">
+            <h2>Calculadora de Simulação</h2>
+            <form id="loan-calculator">
+                <label for="service">Selecione o Serviço:</label>
+                <select id="service" name="service" required>
+                    <option value="personal">Crédito Pessoal</option>
+                    <option value="private">Consignado Privado</option>
+                    <option value="public">Consignado Público</option>
+                    <option value="fgts">FGTS</option>
+                </select>
+
+                <label for="amount">Valor do Empréstimo (R$):</label>
+                <input type="number" id="amount" name="amount" required>
+
+                <label for="term">Prazo (meses):</label>
+                <input type="number" id="term" name="term" required>
+
+                <button type="submit">Calcular</button>
             </form>
+            <div id="result"></div>
+        </section>
+
+        <section id="faq" class="faq">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <h3>O que é um financiamento consignado?</h3>
+                <p>Um financiamento consignado é um tipo de empréstimo onde as parcelas são descontadas diretamente da folha de pagamento ou benefício do solicitante.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Quais documentos são necessários para solicitar um empréstimo?</h3>
+                <p>Os documentos necessários incluem RG, CPF, comprovante de residência, comprovante de renda e extrato bancário.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Posso antecipar o pagamento do meu empréstimo?</h3>
+                <p>Sim, você pode antecipar o pagamento do seu empréstimo a qualquer momento, reduzindo os juros totais pagos.</p>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="testimonials">
+            <h2>Depoimentos</h2>
+            <div class="testimonial-item">
+                <p>"A Valor Financiamentos me ajudou a realizar o sonho de abrir meu próprio negócio. O atendimento foi excelente e as condições de pagamento foram muito favoráveis." - João Silva</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"Consegui um empréstimo consignado com uma taxa de juros muito baixa. Recomendo a todos que precisam de uma solução financeira rápida e segura." - Maria Oliveira</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"O atendimento personalizado fez toda a diferença. A equipe da Valor Financiamentos é muito profissional e atenciosa." - Carlos Souza</p>
+            </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contatos</h3>
-                <p>Matriz Geral: (11) 3717-6444</p>
-                <p>WhatsApp: (11) 3717-6415</p>
-                <p>SAC: (11) 4873-1304</p>
-                <p>Ouvidoria: 0800 591 3076</p>
-            </div>
-            <div class="footer-section">
-                <h3>Endereço</h3>
-                <p>Rua Augusta 101 - Consolação</p>
-                <p>São Paulo - SP - 01305-000</p>
-            </div>
-            <div class="footer-section">
-                <h3>Redes Sociais</h3>
-                <a href="https://www.instagram.com/valorfinanciamentosoficial/" target="_blank">Instagram</a>
+            <div class="social-media">
+                <a href="https://www.instagram.com/valorfinanciamentosoficial/?hl=pt-br" target="_blank">Instagram</a>
                 <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank">Facebook</a>
                 <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank">LinkedIn</a>
             </div>
+            <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
+            <p>CNPJ: 07.799.277/0001-75</p>
         </div>
-        <p>&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
     </footer>
 
     <script src="scripts.js"></script>
