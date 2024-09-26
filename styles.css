@@ -1,41 +1,79 @@
-/* styles.css */
-
 :root {
-    --primary-color: #0077BE;
-    --secondary-color: #00A86B;
-    --text-color: #333;
-    --background-color: #F5F5F5;
+    --primary-color: #2cb0dc;
+    --secondary-color: #005aad;
+    --background-color: #cdffff;
+    --text-color: #030303;
+    --accent-color: #5de0e6;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background-color);
     margin: 0;
     padding: 0;
+    background-color: var(--background-color);
+}
+
+h1, h2, h3 {
+    font-family: 'League Spartan', sans-serif;
 }
 
 header {
     background-color: var(--primary-color);
-    color: white;
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
-    max-width: 150px;
+    max-width: 200px;
 }
 
 nav ul {
     list-style-type: none;
-    padding: 0;
     display: flex;
-    justify-content: center;
 }
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    background-image: url('https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.about, .services, .contact, .calculator, .faq, .testimonials {
+    padding: 4rem 2rem;
+    max-width: 1200px;/* styles.css */
 
 nav ul li {
     margin: 0 15px;
@@ -93,33 +131,55 @@ main {
 
 .service-grid {
     display: grid;
+    margin: 0 auto;
+}
+
+.about-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.service-grid {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
 .service-item {
-    background-color: white;
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+    background-color: #FFFFFF;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-form {
+#loan-calculator {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     margin: 0 auto;
 }
 
-input, textarea {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+#loan-calculator label {
+    margin: 10px 0 5px;
+}
+
+#loan-calculator input, #loan-calculator select {
+    padding: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-button {
+#loan-calculator button {
     background-color: var(--primary-color);
     color: white;
     padding: 10px;
@@ -128,40 +188,76 @@ button {
     cursor: pointer;
 }
 
-footer {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 2rem 0;
+#loan-calculator button:hover {
+    background-color: var(--secondary-color);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--text-color);
     text-align: center;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.faq, .testimonials {
+    padding: 4rem 2rem;
+    background-color: var(--background-color);
 }
 
-.footer-section {
+.faq h2, .testimonials h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.faq-item, .testimonial-item {
+    background-color: white;
+    padding: 1.5rem;
     margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.footer-section a {
-    color: white;
-    text-decoration: none;
-    display: block;
+.faq-item h3 {
     margin-bottom: 0.5rem;
 }
 
+.testimonial-item p {
+    font-style: italic;
+    color: var(--text-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 2rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-media a {
+    color: #FFFFFF;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
 
     .service-grid {
         grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        flex-direction: column;
     }
 }
