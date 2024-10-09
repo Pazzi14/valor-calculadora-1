@@ -3,113 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Valor Financiamentos - Sua parceira confiável para soluções financeiras personalizadas desde 2006">
-    <meta name="keywords" content="financiamentos, crédito pessoal, consignado, FGTS, empréstimos">
-    <title>Valor Financiamentos</title>
+    <title>Simulador de Empréstimo</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=League+Spartan:wght@400;700&family=Glacial+Indifference:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="https://valorfinanciamentos.com.br/wp-content/uploads/2020/08/logo_grande_valor.png.png" alt="Logo da Valor Financiamentos" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <h1>Simulador de Empréstimo</h1>
+        <form id="loanForm">
+            <div class="form-group">
+                <label for="loanType">Tipo de Empréstimo:</label>
+                <select id="loanType" required>
+                    <option value="CREDITO_PESSOAL">Crédito Pessoal</option>
+                    <option value="FGTS">FGTS</option>
+                    <option value="CONSIGNADO_PRIVADO">Consignado Privado</option>
+                    <option value="CONSIGNADO_PUBLICO">Consignado Público</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="loanAmount">Valor do Empréstimo (R$):</label>
+                <input type="number" id="loanAmount" min="500" max="20000" required>
+            </div>
+            <div class="form-group">
+                <label for="loanTerm">Número de Parcelas:</label>
+                <input type="number" id="loanTerm" min="1" required>
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="result" class="hidden">
+            <h2>Resultado da Simulação</h2>
+            <p>Valor da Parcela: R$ <span id="monthlyPayment"></span></p>
+            <p>Valor Total: R$ <span id="totalAmount"></span></p>
+            <p>Total de Juros: R$ <span id="totalInterest"></span></p>
         </div>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Valor Financiamentos</h1>
-                <p>Transformando suas aspirações financeiras em realidade desde 2006</p>
-                <a href="#servicos" class="cta-button">Conheça Nossos Serviços</a>
-            </div>
-        </section>
-
-        <section id="sobre" class="about">
-            <div class="container">
-                <h2>Sobre a Valor Financiamentos</h2>
-                <p>A Valor Financiamentos, devidamente regulamentada e autorizada pelo Banco Central do Brasil, é sua parceira confiável na jornada rumo às suas conquistas financeiras. Com mais de 18 anos de excelência no mercado financeiro brasileiro, nossa missão é compreender e atender às suas necessidades de crédito com precisão e agilidade.</p>
-                <ul>
-                    <li>Fundada em 01/05/2006</li>
-                    <li>CNPJ: 07.799.277/0001-75</li>
-                    <li>Razão Social: Valor Sociedade de Crédito S/A</li>
-                </ul>
-                <p>Oferecemos atendimento personalizado em todo o território nacional, seja através de nossa rede de correspondentes certificados ou por meio de nossa plataforma 100% digital. Nossa eficiência é comprovada: análise e aprovação em até 2 horas, crédito em conta em até 24 horas e flexibilidade de carência de 1 a 2 meses para o primeiro pagamento.</p>
-            </div>
-        </section>
-
-        <section id="servicos" class="services">
-            <div class="container">
-                <h2>Nossos Serviços</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>Crédito Pessoal</h3>
-                        <p>Taxa de 7% de juros, até 8 meses para pagar.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Consignado Privado</h3>
-                        <p>Taxa de 5% de juros, até 96 meses para pagar.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Consignado Público</h3>
-                        <p>Taxa de 4% de juros, até 96 meses para pagar.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>FGTS</h3>
-                        <p>Taxa de 2% de juros, até 7 anos para pagar.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contato" class="contact">
-            <div class="container">
-                <h2>Entre em Contato</h2>
-                <form id="contact-form">
-                    <input type="text" name="name" placeholder="Seu Nome" required>
-                    <input type="email" name="email" placeholder="Seu E-mail" required>
-                    <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contatos</h3>
-                    <p>Matriz Geral: (11) 3717-6444</p>
-                    <p>WhatsApp: (11) 3717-6415</p>
-                    <p>SAC: (11) 4873-1304</p>
-                    <p>Cobrança: (11) 3717-6422</p>
-                    <p>Ouvidoria: 0800 591 3076</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Endereço</h3>
-                    <p>Rua Augusta 101 - Consolação</p>
-                    <p>São Paulo - SP - 01305-000</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Redes Sociais</h3>
-                    <a href="https://www.instagram.com/valorfinanciamentosoficial/" target="_blank">Instagram</a>
-                    <a href="https://m.facebook.com/valorfinanciamentos/" target="_blank">Facebook</a>
-                    <a href="https://www.linkedin.com/company/valorfinanciamentos/" target="_blank">LinkedIn</a>
-                </div>
-            </div>
-            <p class="copyright">&copy; 2024 Valor Financiamentos. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="scripts.js"></script>
+        <div id="error" class="hidden"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
