@@ -1,31 +1,75 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+class EmprestimoCalculator {
+    constructor() {
+        this.tiposEmprestimo = {
+            CREDITO_PESSOAL: { juros: 0.07, maxParcelas: 8 },
+            FGTS: { juros: 0.02, maxParcelas: 84 },
+            CONSIGNADO_PRIVADO: { juros: 0.05, maxParcelas: 96 },
+            CONSIGNADO_PUBLICO: { juros: 0.04, maxParcelas: 96 }
+        };
+    }
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+    calcularEmprestimo(tipo, valor, parcelas) {
+        if (valor < 500 || valor > 20000) {
+            throw new Error("Valor do empréstimo deve ser entre R$500 e R$20.000");
+        }
 
-    // Form submission
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function(e) {
+        const emprestimo = this.tiposEmprestimo[tipo];
+        if (!emprestimo) {
+            throw new Error("Tipo de empréstimo inválido");
+        }
+
+        if (parcelas > emprestimo.maxParcelas) {
+            throw new Error(`Número máximo de parcelas para ${tipo} é ${emprestimo.maxParcelas}`);
+        }
+
+        const taxaMensal = emprestimo.juros;
+        const valorParcela = (valor * taxaMensal * Math.pow(1 + taxaMensal, parcelas)) / (Math.pow(1 + taxaMensal, parcelas) - 1);
+        const valorTotal = valorParcela * parcelas;
+        const totalJuros = valorTotal - valor;
+
+        return {
+            valorParcela: valorParcela.toFixed(2),
+            valorTotal: valorTotal.toFixed(2),
+            totalJuros: totalJuros.toFixed(2)
+        };
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('loanForm');
+    const result = document.getElementById('result');
+    const error = document.getElementById('error');
+    const calculator = new EmprestimoCalculator();
+
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        // Here you would typically send the form data to a server
-        alert('Obrigado por entrar em contato! Retornaremos em breve.');
-        form.reset();
+        result.classList.add('hidden');
+        error.classList.add('hidden');
+
+        const tipo = document.getElementById('loanType').value;
+        const valor = parseFloat(document.getElementById('loanAmount').value);
+        const parcelas = parseInt(document.getElementById('loanTerm').value);
+
+        try {
+            const resultado = calculator.calcularEmprestimo(tipo, valor, parcelas);
+            document.getElementById('monthlyPayment').textContent = resultado.valorParcela;
+            document.getElementById('totalAmount').textContent = resultado.valorTotal;
+            document.getElementById('totalInterest').textContent = resultado.totalJuros;
+            result.classList.remove('hidden');
+        } catch (err) {
+            error.textContent = err.message;
+            error.classList.remove('hidden');
+        }
     });
 
-    // Loan calculator
-    const calculateLoan = (amount, rate, term) => {
-        const monthlyRate = rate / 100 / 12;
-        const payment = amount * monthlyRate * Math.pow(1 + monthlyRate, term) / (Math.pow(1 + monthlyRate, term) - 1);
-        return payment.toFixed(2);
-    };
+    // Atualizar o número máximo de parcelas com base no tipo de empréstimo selecionado
+    document.getElementById('loanType').addEventListener('change', (e) => {
+        const maxParcelas = calculator.tiposEmprestimo[e.target.value].maxParcelas;
+        document.getElementById('loanTerm').max = maxParcelas;
+        document.getElementById('loanTerm').placeholder = `Máximo: ${maxParcelas}`;
+    });
 
-    // Example usage (you can expand this into a full calculator interface):
-    console.log(`Pagamento mensal estimado para Crédito Pessoal: R$ ${calculateLoan(10000, 7, 8)}`);
+    // Inicializar o placeholder do número de parcelas
+    const initialMaxParcelas = calculator.tiposEmprestimo.CREDITO_PESSOAL.maxParcelas;
+    document.getElementById('loanTerm').placeholder = `Máximo: ${initialMaxParcelas}`;
 });
