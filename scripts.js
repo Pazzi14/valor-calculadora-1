@@ -1,25 +1,30 @@
 class EmprestimoCalculator {
     constructor() {
         this.tiposEmprestimo = {
-            CREDITO_PESSOAL: { juros: 0.07, maxParcelas: 8 },
-            FGTS: { juros: 0.02, maxParcelas: 84 },
-            CONSIGNADO_PRIVADO: { juros: 0.05, maxParcelas: 96 },
-            CONSIGNADO_PUBLICO: { juros: 0.04, maxParcelas: 96 }
+            CREDITO_PESSOAL: { juros: 0.07, maxParcelas: 8, nome: "Crédito Pessoal" },
+            FGTS: { juros: 0.02, maxParcelas: 7, nome: "FGTS", anual: true },
+            CONSIGNADO_PRIVADO: { juros: 0.05, maxParcelas: 96, nome: "Consignado Privado" },
+            CONSIGNADO_PUBLICO: { juros: 0.04, maxParcelas: 96, nome: "Consignado Público" }
         };
     }
 
     calcularEmprestimo(tipo, valor, parcelas) {
         if (valor < 500 || valor > 20000) {
-            throw new Error("Valor do emprestimo deve ser entre R$500 e R$20.000");
+            throw new Error("Valor do empréstimo deve ser entre R$500 e R$20.000");
         }
 
         const emprestimo = this.tiposEmprestimo[tipo];
         if (!emprestimo) {
-            throw new Error("Tipo de emprestimo invalido");
+            throw new Error("Tipo de empréstimo inválido");
         }
 
-        if (parcelas > emprestimo.maxParcelas) {
-            throw new Error(`Numero maximo de parcelas para ${tipo} e ${emprestimo.maxParcelas}`);
+        let maxParcelas = emprestimo.maxParcelas;
+        if (emprestimo.anual) {
+            maxParcelas *= 12; // Converte parcelas anuais para mensais
+        }
+
+        if (parcelas > maxParcelas) {
+            throw new Error(`Número máximo de parcelas para ${emprestimo.nome} é ${emprestimo.anual ? emprestimo.maxParcelas + " anos" : maxParcelas + " meses"}`);
         }
 
         const taxaMensal = emprestimo.juros;
@@ -41,13 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const resultDiv = document.getElementById('result');
     const errorDiv = document.getElementById('error');
     const jurosInfoP = document.getElementById('jurosInfo');
+    const loanTermInput = document.getElementById('loanTerm');
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const tipo = document.getElementById('loanType').value;
         const valor = parseFloat(document.getElementById('loanAmount').value);
-        const parcelas = parseInt(document.getElementById('loanTerm').value);
+        const parcelas = parseInt(loanTermInput.value);
 
         errorDiv.classList.add('hidden');
         resultDiv.classList.add('hidden');
@@ -69,7 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('loanType').addEventListener('change', function() {
         const tipo = this.value;
         const emprestimo = calculator.tiposEmprestimo[tipo];
-        jurosInfoP.textContent = `Taxa de juros: ${emprestimo.juros * 100}% ao mes. Maximo de ${emprestimo.maxParcelas} parcelas.`;
+        const maxParcelas = emprestimo.anual ? emprestimo.maxParcelas * 12 : emprestimo.maxParcelas;
+        
+        jurosInfoP.textContent = `Taxa de juros: ${emprestimo.juros * 100}% ao mês. Máximo de ${emprestimo.anual ? emprestimo.maxParcelas + " anos" : maxParcelas + " meses"}.`;
+        
+        loanTermInput.max = maxParcelas;
+        loanTermInput.placeholder = emprestimo.anual ? "Número de meses" : "Número de parcelas";
     });
 
     // Trigger the change event on page load to show initial loan info
