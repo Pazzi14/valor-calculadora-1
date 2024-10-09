@@ -1,181 +1,73 @@
-:root {
-    --color-cdffff: #cdffff;
-    --color-white: #FFFFFF;
-    --color-2cb0dc: #2cb0dc;
-    --color-030303: #030303;
-    --color-61bcdd: #61bcdd;
-    --color-46a3d0: #46a3d0;
-    --color-2586c0: #2586c0;
-    --color-5de0e6: #5de0e6;
-    --color-005aad: #005aad;
-    --color-2db0dc: #2db0dc;
-    --color-63bcdd: #63bcdd;
-    --color-46a1ce: #46a1ce;
-    --color-2588c1: #2588c1;
-}
-
 body {
-    font-family: 'Roboto', 'League Spartan', 'Glacial Indifference', sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--color-030303);
-    background-color: var(--color-white);
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-header {
-    background-color: var(--color-white);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.logo {
-    max-width: 200px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: var(--color-2cb0dc);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    padding-top: 80px;
-}
-
-.hero {
-    background-image: url('https://www.tradersdna.com/wp-content/uploads/2022/10/Modern-Banking.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: var(--color-white);
-}
-
-.hero h1 {
-    font-family: 'League Spartan', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--color-5de0e6);
-    color: var(--color-030303);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.about, .services, .contact {
-    padding: 4rem 0;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.service-item {
-    background-color: var(--color-cdffff);
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
+h1 {
+    text-align: center;
+    color: #333;
 }
 
-input, textarea {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 1px solid var(--color-61bcdd);
-    border-radius: 4px;
-}
-
-button {
-    background-color: var(--color-2cb0dc);
-    color: var(--color-white);
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-footer {
-    background-color: var(--color-005aad);
-    color: var(--color-white);
-    padding: 2rem 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-section {
+.form-group {
     margin-bottom: 1rem;
 }
 
-.footer-section a {
-    color: var(--color-white);
-    text-decoration: none;
+label {
     display: block;
     margin-bottom: 0.5rem;
 }
 
-.copyright {
-    text-align: center;
-    margin-top: 2rem;
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
+button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
 
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
+button:hover {
+    background-color: #0056b3;
+}
 
-    .footer-content {
-        flex-direction: column;
-    }
+#result, #error {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+#result {
+    background-color: #e8f5e9;
+}
+
+#error {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.hidden {
+    display: none;
 }
