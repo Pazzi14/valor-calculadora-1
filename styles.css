@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
@@ -30,23 +30,26 @@ header {
 h1 {
     text-align: center;
     color: #005aad;
+    margin-bottom: 1.5rem;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
     color: #2586c0;
+    font-weight: bold;
 }
 
 input, select {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border: 1px solid #61bcdd;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 button {
@@ -72,21 +75,35 @@ button:hover {
     padding: 1rem;
     margin-top: 1rem;
     border-radius: 4px;
+    font-weight: bold;
 }
 
 .result {
     background-color: #5de0e6;
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
     border-radius: 4px;
+}
+
+.result h2 {
+    color: #005aad;
+    margin-top: 0;
 }
 
 .hidden {
     display: none;
 }
 
-#jurosInfo {
+.info-text {
     color: #2588c1;
     font-style: italic;
     margin-bottom: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 1rem;
+    }
 }
